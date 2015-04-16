@@ -313,12 +313,13 @@ def get_platform_gpio(**keywords):
     exception if a GPIO instance can't be created for the current platform.  The
     returned GPIO object is an instance of BaseGPIO.
     """
-    plat = Platform.platform_detect()
-    if plat == Platform.RASPBERRY_PI:
-        import RPi.GPIO
-        return RPiGPIOAdapter(RPi.GPIO, **keywords)
-    elif plat == Platform.BEAGLEBONE_BLACK:
-        import Adafruit_BBIO.GPIO
-        return AdafruitBBIOAdapter(Adafruit_BBIO.GPIO, **keywords)
-    elif plat == Platform.UNKNOWN:
-        raise RuntimeError('Could not determine platform.')
+    # plat = Platform.platform_detect()
+    # if plat == Platform.RASPBERRY_PI:
+    import RPi.GPIO
+    return RPiGPIOAdapter(RPi.GPIO, **keywords)
+    #elif plat == Platform.BEAGLEBONE_BLACK:
+    #    import Adafruit_BBIO.GPIO
+    #    return AdafruitBBIOAdapter(Adafruit_BBIO.GPIO, **keywords)
+    #elif plat == Platform.UNKNOWN:
+    #    raise RuntimeError('Could not determine platform.')
+
